@@ -1,0 +1,18 @@
+<div class="login-page">
+  <div class="form">
+    {{titulo}}
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form">
+      <input type="text" [(ngModel)]="usuario.email" class="form-control" name="username" id="username" placeholder="username" autofocus required/>
+      <input type="password" [(ngModel)]="usuario.passwordHash" class="form-control" name="password" id="password" placeholder="password" required />
+      <button type="submit" (click)="login()">login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>

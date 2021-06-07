@@ -1,0 +1,47 @@
+
+<div class="login-page">
+  <label>Email </label>
+  <input type="text" [(ngModel)]="EMAIL_USER">
+  <button type="submit" (click)="buscar()" >Buscar</button>
+
+
+<div class="table-title">
+</div>
+  <label>Campo</label>
+<select id="campo" [(ngModel)]="CAMPO">
+  <option value="bookingId">id</option>
+  <option value="bookingPrice">precio</option>
+</select>
+  <label>Signo</label>
+  <select id="signo" [(ngModel)]="SIGNO">
+    <option selected>Seleccione</option>
+  <option value="=">Igual</option>
+  <option value=">=">Mayor Igual</option>
+  <option value="<=">Menor Igual</option>
+</select>
+  <label>Valor</label>
+  <input type="text" class="forms-control" placeholder="valor" id="valor" [(ngModel)]="VALOR"/>
+<button type="submit" (click)="param = [SIGNO,CAMPO,VALOR]" >Buscar</button>
+</div>
+<table class="table-fill">
+  <thead>
+  <tr>
+    <th class="text-left">id</th>
+    <th class="text-left">Cliente</th>
+    <th class="text-left">Fecha Creacion</th>
+    <th class="text-left">Direccion</th>
+    <th class="text-left">Precio</th>
+  </tr>
+  </thead>
+  <tbody class="table-hover">
+  <tr *ngFor="let booking of data | filterBook:param ">
+    <td class="text-left">{{booking.bookingId}}</td>
+    <td class="text-left">{{booking.tutenUserClient.firstName + ' ' + booking.tutenUserClient.lastName}}</td>
+    <td class="text-left">{{booking.bookingTime}}</td>
+    <td class="text-left">{{booking.locationId.streetAddress}}</td>
+    <td class="text-left">{{booking.bookingPrice}}</td>
+  </tr>
+
+  </tbody>
+</table>
+
